@@ -72,4 +72,23 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-gradient-to-r from-emerald-500 to-t
+              className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white py-3 rounded-lg font-semibold hover:from-emerald-600 hover:to-teal-700 transition-all duration-200 disabled:opacity-50"
+            >
+              {isLoading ? 'Signing in...' : 'Sign In'}
+            </button>
+          </form>
+
+          <p className="text-center mt-6 text-gray-600">
+            Don't have an account?{' '}
+            <button
+              onClick={() => navigate('register')}
+              className="text-emerald-600 font-medium hover:text-emerald-700"
+            >
+              Sign up
+            </button>
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
