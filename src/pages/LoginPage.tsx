@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useApp } from '../context/AppContext';
 
-export default function LoginPage() {
+export function LoginPage() {
   const { login, navigate } = useApp();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
