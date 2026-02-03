@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useApp } from '../context/AppContext';
 
-const LoginPage: React.FC = () => {
-  const { login, setCurrentPage } = useApp();
+export default function LoginPage() {
+  const { login, navigate } = useApp();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -18,9 +18,9 @@ const LoginPage: React.FC = () => {
     const success = login(email, password);
     
     if (success) {
-      setCurrentPage('home');
+      navigate('home');
     } else {
-      setError('Invalid email or password');
+      setError('Invalid email or password. Please try again.');
     }
     setIsLoading(false);
   };
@@ -72,25 +72,4 @@ const LoginPage: React.FC = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white py-3 rounded-lg font-semibold hover:from-emerald-600 hover:to-teal-700 transition-all duration-200 disabled:opacity-50"
-            >
-              {isLoading ? 'Signing in...' : 'Sign In'}
-            </button>
-          </form>
-
-          <p className="text-center mt-6 text-gray-600">
-            Don't have an account?{' '}
-            <button
-              onClick={() => setCurrentPage('register')}
-              className="text-emerald-600 font-semibold hover:text-emerald-700"
-            >
-              Sign up
-            </button>
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default LoginPage;
+              className="w-full bg-gradient-to-r from-emerald-500 to-t
